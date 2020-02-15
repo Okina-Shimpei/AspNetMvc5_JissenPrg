@@ -13,5 +13,11 @@ namespace MvcBasic.Controllers
         {
             return Content(" こんにちは、世界！ ");
         }
+        public ActionResult Show()
+        {
+            ViewBag.Message = " こんにちは、世界！ ";
+            return View();
+        }
+
     }
 }
