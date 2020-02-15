@@ -4,3 +4,10 @@
 
 /.vs
 /MvcBasic/.vs/MvcBasic
+/MvcBasic/MvcBasic/App_Data
+*.dll
+*.xml
+/MvcBasic/MvcBasic.Tests/bin/Debug
+*.CopyComplete
+/MvcBasic/MvcBasic.Tests/obj/Debug/MvcBasic.Tests.csproj.FileListAbsolute.txt
+/MvcBasic/MvcBasic.Tests/obj/Debug/MvcBasic.Tests.pdb
