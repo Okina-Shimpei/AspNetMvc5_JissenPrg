@@ -23,16 +23,7 @@ namespace MvcBasic.Controllers
         // GET: Members/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
+            return GetAndDisp(id);
         }
 
         // GET: Members/Create
@@ -46,7 +37,8 @@ namespace MvcBasic.Controllers
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Email,Birth,Married,Memo")] Member member)
+        public ActionResult 
+            Create([Bind(Include = "Id,Name,Email,Birth,Married,Memo")] Member member)
         {
             if (ModelState.IsValid)
             {
@@ -61,16 +53,7 @@ namespace MvcBasic.Controllers
         // GET: Members/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
+            return GetAndDisp(id);
         }
 
         // POST: Members/Edit/5
@@ -92,16 +75,7 @@ namespace MvcBasic.Controllers
         // GET: Members/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Member member = db.Members.Find(id);
-            if (member == null)
-            {
-                return HttpNotFound();
-            }
-            return View(member);
+            return GetAndDisp(id);
         }
 
         // POST: Members/Delete/5
@@ -109,8 +83,7 @@ namespace MvcBasic.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Member member = db.Members.Find(id);
-            db.Members.Remove(member);
+            db.Entry(new Member { Id = id }).State = EntityState.Deleted;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -122,6 +95,20 @@ namespace MvcBasic.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private ActionResult GetAndDisp(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Member member = db.Members.Find(id);
+            if (member == null)
+            {
+                return HttpNotFound();
+            }
+            return View(member);
         }
     }
 }
