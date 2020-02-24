@@ -11,3 +11,8 @@
 *.CopyComplete
 /MvcBasic/MvcBasic.Tests/obj/Debug/MvcBasic.Tests.csproj.FileListAbsolute.txt
 /MvcBasic/MvcBasic.Tests/obj/Debug/MvcBasic.Tests.pdb
+/ViewTraining/ViewTraining/bin
+/ViewTraining/ViewTraining/obj/Debug
+/ViewTraining/ViewTraining/App_Data
+/ViewTraining/.vs/ViewTraining
+/ViewTraining/packages
