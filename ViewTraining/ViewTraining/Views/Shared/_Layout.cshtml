@@ -33,6 +33,9 @@
         @RenderBody()
         <hr />
         <footer>
+            <p>
+                @MyHelper.Mailto("CQW15204@nifty.com", "問い合わせ")
+            </p>
             <p>&copy; @DateTime.Now.Year - マイ ASP.NET アプリケーション</p>
         </footer>
     </div>
