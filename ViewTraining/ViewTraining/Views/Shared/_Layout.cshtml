@@ -34,7 +34,8 @@
         <hr />
         <footer>
             <p>
-                @MyHelper.Mailto("CQW15204@nifty.com", "問い合わせ")
+                @Html.Mailto("CQW15204@nifty.com", "問い合わせ")
+                @Html.Image("~/Content/images/mail.jpeg", "メール")
             </p>
             <p>&copy; @DateTime.Now.Year - マイ ASP.NET アプリケーション</p>
         </footer>
